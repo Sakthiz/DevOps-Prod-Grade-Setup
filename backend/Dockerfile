@@ -24,6 +24,6 @@ COPY --from=builder /app/package*.json ./
 
 ENV NODE_ENV=production
 
-EXPOSE 5000
+EXPOSE 4657
 
 CMD ["node", "dist/index.js"]
