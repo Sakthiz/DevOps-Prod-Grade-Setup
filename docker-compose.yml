@@ -16,12 +16,12 @@ services:
     dockerfile: Dockerfile
    container_name: backend
    ports:
-    - "5000:5000"
+    - "4657:4657"
    depends_on:
     - mongo
    environment:
     - NODE_ENV=production
-    - PORT=5000
+    - PORT=4657
     - MONGODB_URI=mongodb://mongo:27017/devops_db
    networks:
     - app-network
