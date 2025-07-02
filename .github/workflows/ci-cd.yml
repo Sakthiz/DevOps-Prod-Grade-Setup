@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      VITE_BACKEND_URL: http://backend:4657/api/v1  # ✅ Update this if needed
+      VITE_BACKEND_URL: http://backend:4657/api/v1
 
     steps:
       - name: Checkout code
