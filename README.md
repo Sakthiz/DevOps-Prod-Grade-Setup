@@ -1,45 +1,180 @@
-# MERN TypeScript Starter Template
+# 🚀 DevOps Production-Grade Setup - MERN App Deployment
 
-This is a starter template for building web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js) with TypeScript.
+This repository showcases a complete end-to-end **DevOps pipeline** to deploy a production-ready MERN application using industry best practices. It includes **Docker, CI/CD, Infrastructure as Code (Terraform), AWS Cloud, and Monitoring Stack**.
 
-For CONTRIBUTING, see [CONTRIBUTING.md](./CONTRIBUTING.md).
+---
 
-## Technologies Used
+## 🧩 Project Overview
 
-#### Frontend [read more](#frontend)
+- 🖥️ **Application Type**: MERN Stack (Frontend + Backend + MongoDB)
+- 🐳 **Containerization**: Docker & Docker Compose
+- ⚙️ **CI/CD**: GitHub Actions + Amazon ECR
+- ☁️ **Cloud Provider**: AWS (Free Tier)
+- 📦 **Infra Provisioning**: Terraform (IaC)
+- 📊 **Monitoring**: Prometheus + Grafana + Node Exporter
+- 🔐 **Secrets Management**: GitHub Actions Secrets
 
-- [React.js:](https://reactjs.org/) for building the user interface.
-- [Vite.js:](https://vitejs.dev/) for building the frontend.
-- [TypeScript:](https://www.typescriptlang.org/) for adding types to JavaScript.
-- [Tailwind CSS:](https://tailwindcss.com/) for styling the user interface.
-- [Shadcn UI:](https://ui.shadcn.com/) for adding elements.
-- [React Router:](https://reactrouter.com/) for routing.
+---
 
-#### Backend [read more](#backend)
+## 🛠️ Tech Stack
 
-- [Express.js:](https://expressjs.com/) for building the server-side application.
-- [MongoDB:](https://www.mongodb.com/) for the database.
-- [TypeScript:](https://www.typescriptlang.org/) for adding types to JavaScript.
+| Tool               | Purpose                              |
+|--------------------|--------------------------------------|
+| **Docker**         | Containerization                     |
+| **Docker Compose** | Local & cloud service orchestration  |
+| **GitHub Actions** | CI/CD pipeline automation            |
+| **AWS EC2**        | Application Hosting                  |
+| **Amazon ECR**     | Container Image Registry             |
+| **Terraform**      | Infrastructure as Code               |
+| **Prometheus**     | Metrics scraping                     |
+| **Grafana**        | Real-time dashboards                 |
+| **Node Exporter**  | System metrics monitoring            |
 
-## Getting Started
+---
 
-To get started with this template, follow these steps:
+## 🧱 Folder Structure
 
-1. Clone the repository:
-   ```shell
-    git clone https://github.com/jrTilak/mern-template
-   ```
-2. Set up the environment variables: Create a `.env` file in the root directory and add the necessary environment variables from .env.example file.
-3. Install the dependencies and start the development server:
+```bash
+DevOps-Prod-Grade-Setup/
+├── .github/
+│   └── workflows/
+│       └── build-and-push.yml          # GitHub Actions workflow
+├── backend/                            # Node.js backend (Express)
+│   ├── Dockerfile
+│   ├── app.js
+│   ├── package.json
+│   └── package-lock.json
+├── frontend/                           # React frontend (Vite)
+│   ├── Dockerfile
+│   ├── index.html
+│   ├── vite.config.js
+│   ├── package.json
+│   ├── package-lock.json
+│   └── src/
+│       ├── App.css
+│       ├── App.jsx
+│       ├── index.css
+│       └── main.jsx
+├── docker-compose.yml                  # Main Compose for app
+├── README.md                           # Project overview
+```
+---
 
-   ```shell
-   cd ./frontend // or cd ./backend
-   npm install
-   npm run dev
-   ```
+## 🧱 DevOps Architecture
 
-4. Open your browser
+![image](https://github.com/user-attachments/assets/29b84aa4-ba4d-42c9-a00b-47533e84e012)
 
-## Frontend
+---
 
-## Backend
+## 🔁 CI/CD Workflow
+
+This repository includes a GitHub Actions pipeline that:
+
+1. **Builds Docker images** for both frontend and backend.
+2. **Pushes** them to **Amazon ECR**.
+3. You then **pull & deploy** them via Docker Compose on EC2.
+
+
+---
+
+## ☁️ Infrastructure Setup (Terraform)
+
+Refer : https://github.com/Sakthiz/DevOps-Infra-Setup
+
+1. **Creates an EC2 instance**
+2. **Provisions security groups**
+3. **Generates outputs** (like Public IP)
+
+🔑 Uses variables to avoid hardcoding values and supports secret-free versioning.
+
+---
+
+### 🚀 Deployment Instructions
+
+#### ✅ Deploying Locally
+
+# Create an application directory
+mkdir app && cd app
+
+# Create the Docker Compose file
+nano docker-compose.yml
+
+✏️ Paste the `docker-compose.yml` content from the repository into this file.
+
+# Build and start the application
+docker-compose up -d --build
+
+---
+#### 🖥️ Deploying on an EC2 Instance
+
+# Create an application directory
+mkdir app && cd app
+
+# Create the Docker Compose file
+nano docker-compose.yml
+
+✏️ Paste the `docker-compose.yml` content from the repository into this file.
+
+# Pull the container images from ECR
+docker-compose pull
+
+# Start the application
+docker-compose up -d
+
+---
+### ✅ Notes:
+* Ensure Docker and Docker Compose are installed on your EC2 instance.
+* Open the required ports in your EC2 security group (e.g., 80, 4657).
+* Make sure the `docker-compose.yml` references the correct ECR image URLs.
+
+---
+## 🧪 Monitoring with Prometheus & Grafana
+
+### 🔹 Services:
+
+* `Prometheus`: http://<EC2_IP>:9090
+* `Grafana`: http://<EC2_IP>:3000
+  (Default login: `admin` / `admin`)
+
+### 🔹 Dashboards:
+
+* Custom dashboards for CPU, memory, and container metrics
+* Prometheus scrapers:
+   Backend /metricks endpoint
+   Node Exporter 
+---
+
+# Key Highlights
+
+✅ Production-ready Dockerfiles
+✅ Multi-stage builds (frontend)
+✅ CI/CD pipeline with ECR integration
+✅ Infrastructure as Code (Terraform)
+✅ Monitoring stack to track health and metrics
+✅ Clear folder structure and modularization
+
+---
+## 🏁 Conclusion
+
+This project demonstrates my ability to:
+
+* Build secure, automated, scalable pipelines
+* Manage infrastructure using Terraform
+* Monitor services using Grafana + Prometheus
+* Work with AWS services in a production-grade environment
+
+🎯 Goal: Build & deploy a fully working MERN application on AWS using best DevOps practices.
+
+---
+
+## 🤝 Let’s Connect
+
+📧 Email: [sakthimanikandan1718@gmail.com]
+🔗 LinkedIn: [[linkedin.com/in/sakthi-manikandan-a](https://www.linkedin.com/in/sakthi-manikandan-a-79101b23b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)]
+🔗 GitHub: [[github.com/Sakthiz](https://github.com/Sakthiz)]
+
+---
+
+*“Build like an engineer, think like an SRE.”*
+
+
