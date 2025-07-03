@@ -99,7 +99,7 @@ mkdir app && cd app
 # Create the Docker Compose file
 nano docker-compose.yml
 
-✏️ Paste the `docker-compose.yml` content from the repository into this file.
+✏️ Paste the `docker-compose.yml` content from the  root directory in the repository into this file.
 
 # Build and start the application
 docker-compose up -d --build
@@ -113,7 +113,9 @@ mkdir app && cd app
 # Create the Docker Compose file
 nano docker-compose.yml
 
-✏️ Paste the `docker-compose.yml` content from the repository into this file.
+The docker-compose.yml file for application setup is located at: EC2/app/docker-compose.yml
+
+This file defines and orchestrates all services required to run the application using Docker Compose. It ensures seamless integration and deployment of components like the frontend, backend, and supporting services.
 
 # Pull the container images from ECR
 docker-compose pull
@@ -141,7 +143,13 @@ docker-compose up -d
 * Custom dashboards for CPU, memory, and container metrics
 * Prometheus scrapers:
    Backend /metricks endpoint
-   Node Exporter 
+   Node Exporter
+
+### 🔹 File:
+
+ The Prometheus monitoring setup is available in the repository.
+You can find the configuration file at: EC2/app/prometheus/prometheus.yml
+
 ---
 
 # Key Highlights
