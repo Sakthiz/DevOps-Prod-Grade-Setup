@@ -8,7 +8,7 @@ services:
       - "27017:27017"
 
   backend:
-    image: 769566606602.dkr.ecr.ap-south-1.amazonaws.com/devops-backend
+    image: <Your_ECR_Uri>
     container_name: backend
     environment:
       - MONGODB_URI=mongodb://mongo:27017/devops_db
@@ -19,7 +19,7 @@ services:
       - "4657:4657"
 
   frontend:
-    image: 769566606602.dkr.ecr.ap-south-1.amazonaws.com/devops-frontend
+    image:  <Your_ECR_Uri>
     container_name: frontend
     ports:
       - "80:80"
