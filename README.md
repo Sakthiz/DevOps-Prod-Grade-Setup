@@ -107,6 +107,11 @@ docker-compose up -d --build
 ---
 #### 🖥️ Deploying on an EC2 Instance
 
+To simulate a real-world production environment, I provisioned an EC2 instance using Terraform and deployed the entire application and monitoring stack using a single Docker Compose file.
+
+All configurations and files used in the EC2 instance have been added to the repo under the ec2/ folder for review and reproducibility.
+
+
 # Create an application directory
 mkdir app && cd app
 
