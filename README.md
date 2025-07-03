@@ -39,6 +39,10 @@ DevOps-Prod-Grade-Setup/
 ├── .github/
 │   └── workflows/
 │       └── build-and-push.yml          # GitHub Actions workflow
+├── ec2/                                # EC2-specific deployment setup
+│   ├── docker-compose.yml              # Compose for backend, frontend, monitoring                          # Env vars used during EC2 deployment
+│   └── prometheus/
+│       └── prometheus.yml              # Prometheus scrape configuration
 ├── backend/                            # Node.js backend (Express)
 │   ├── Dockerfile
 │   ├── app.js
@@ -56,8 +60,9 @@ DevOps-Prod-Grade-Setup/
 │       ├── index.css
 │       └── main.jsx
 ├── docker-compose.yml                  # Main Compose for app
-├── README.md                           # Project overview
+└── README.md                           # Project overview
 ```
+
 ---
 
 ## 🧱 DevOps Architecture
